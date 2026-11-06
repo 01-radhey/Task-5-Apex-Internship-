@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RMart | Modern Multi-Category Store</title>
+  <link rel="stylesheet" href="Task 5.css">
+  <script src="Task 5.js" defer></script>
+</head>
+<body>
+
+  <!-- Top Promo Strip -->
+  <div class="promo-strip">
+    🎉 Use Coupon Code <strong>RMART20</strong> in Cart for Instant 20% OFF on All Orders!
+  </div>
+  
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">R</div>
+        <h1>RMart</h1>
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search rice, headphones, lamp, cricket bat...">
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="wishlist-filter-btn" title="Saved Wishlist">
+          ❤️ <span class="badge-pill" id="wishlist-count">0</span>
+        </button>
+        <button class="cart-btn" id="open-cart-btn">
+          🛒 Cart <span class="badge-pill white" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-pill">✨ Smart Shopping • Express Delivery</span>
+        <h2>Upgrade Your Everyday Lifestyle with <span>RMart</span></h2>
+        <p>Explore handpicked Groceries, Smart Electronics, Domestic Essentials, and Pro Sports Gear at unbeatable prices.</p>
+        <div class="hero-btns">
+          <a href="#store-section" class="primary-btn">Explore Catalog ↓</a>
+          <button class="secondary-btn" onclick="filterByCategory('electronics')">Top Electronics</button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-box">
+          <strong>16+</strong>
+          <span>Curated Items</span>
+        </div>
+        <div class="stat-box">
+          <strong>4</strong>
+          <span>Core Categories</span>
+        </div>
+        <div class="stat-box">
+          <strong>20%</strong>
+          <span>Instant Discount</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Store Section -->
+  <main id="store-section" class="main-wrapper">
+    
+    <!-- Category Tabs -->
+    <div class="category-bar" id="category-tabs">
+      <button class="cat-tab active" data-category="all">All Products</button>
+      <button class="cat-tab" data-category="grocery">🥦 Grocery</button>
+      <button class="cat-tab" data-category="electronics">🎧 Electronics</button>
+      <button class="cat-tab" data-category="domestic">🏠 Domestic</button>
+      <button class="cat-tab" data-category="sports">🏏 Sports</button>
+    </div>
+    
+    <div class="toolbar">
+      <div class="price-filter">
+        <label for="price-range">Max Price: <strong id="price-val">₹5000</strong></label>
+        <input type="range" id="price-range" min="300" max="5000" step="100" value="5000">
+      </div>
+
+      <div class="results-info" id="results-count">Showing 16 products</div>
+
+      <div class="sort-control">
+        <label for="sort-select">Sort By:</label>
+        <select id="sort-select">
+          <option value="default">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Customer Rating</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="product-grid" class="product-grid">
+      <!-- Products rendered via JavaScript -->
+    </div>
+
+  </main>
+
+  <div class="modal-backdrop" id="quick-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="close-modal-btn">✕</button>
+      <div class="modal-body" id="modal-content">
+        <!-- Dynamic details injected here -->
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>🛒 Your RMart Cart</h3>
+      <button class="close-drawer" id="close-cart-btn">✕</button>
+    </div>
+
+    <div class="cart-body" id="cart-items-list">
+      <!-- Cart items load here -->
+    </div>
+
+    <!-- Coupon Code Section -->
+    <div class="coupon-section">
+      <div class="coupon-input-group">
+        <input type="text" id="coupon-input" placeholder="Enter coupon (e.g. RMART20)">
+        <button id="apply-coupon-btn">Apply</button>
+      </div>
+      <p id="coupon-msg" class="coupon-msg"></p>
+    </div>
+
+    <div class="cart-footer">
+      <div class="summary-line">
+        <span>Subtotal:</span>
+        <span id="cart-subtotal">₹0</span>
+      </div>
+      <div class="summary-line discount-line" id="discount-row" style="display: none;">
+        <span>Discount (20%):</span>
+        <span id="cart-discount">-₹0</span>
+      </div>
+      <div class="summary-line total-line">
+        <span>Total Payable:</span>
+        <strong id="cart-total">₹0</strong>
+      </div>
+
+      <button class="buy-now-btn" id="buy-now-btn">Buy Now</button>
+      
+      <div id="order-confirmed-msg" class="order-confirmed-box" style="display: none;">
+        ✅ <strong>Order Confirmed!</strong> Thank you for shopping with RMart. Your items will be delivered soon!
+      </div>
+    </div>
+  </aside>
+
+  <div id="toast" class="toast">Added to cart!</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 <strong>RMart</strong> E-Commerce Platform. Designed & Optimized by Radhey Shrivastava.</p>
+  </footer>
+
+</body>
+</html>
